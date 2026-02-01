@@ -1,0 +1,7 @@
+{
+  "name": "Moshate Medical Centre",
+  "description": "Comprehensive medical centre in Akasia, Pretoria. Providing GP services, pharmacy, clinic, women’s health, physiotherapy, and dental care.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

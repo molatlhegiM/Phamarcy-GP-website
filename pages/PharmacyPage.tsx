@@ -8,69 +8,92 @@ const PharmacyPage: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      {/* Promotion Banner */}
-      <div className="bg-moshate-blue text-white text-center py-3 text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-4">
-        <span>Winter Specials: 10% off selected wellness supplements</span>
-        <div className="h-1 w-1 bg-white rounded-full hidden md:block"></div>
-        <span className="hidden md:inline">No online purchases. Available in-store.</span>
+      {/* Promotional Header Banner */}
+      <div className="bg-moshate-blue text-white overflow-hidden relative py-3">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs font-bold tracking-widest uppercase gap-2">
+          <div className="flex items-center gap-2">
+            <Icon name="Sparkles" className="w-4 h-4 text-moshate-teal" />
+            <span>Winter Health Specials: 20% OFF selected immune boosters</span>
+          </div>
+          <div className="flex items-center gap-6">
+            <span>No Online Sales</span>
+            <div className="h-4 w-[1px] bg-white/20 hidden md:block"></div>
+            <span>Visit Us In-Store</span>
+          </div>
+        </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-20">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 border-b border-slate-100 pb-16">
-          <div className="max-w-3xl">
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16 pb-12 border-b border-slate-100">
+          <div className="max-w-2xl">
+            <span className="text-moshate-blue font-bold uppercase tracking-widest text-sm mb-4 block">Medical Grade Supplies</span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6">In-House Pharmacy</h1>
             <p className="text-xl text-slate-600 leading-relaxed">
-              Convenient access to your medications immediately after your consultation. We stock chronic meds, acute treatment, and essential wellness products for the whole family.
+              Fast, professional, and reliable. Moshate Medical Centre Pharmacy stocks a comprehensive range of chronic and over-the-counter medications for Akasia families.
             </p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <button 
               onClick={() => setModalOpen(true)}
-              className="bg-moshate-blue text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all flex items-center gap-3"
+              className="bg-moshate-blue text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:bg-blue-700 transition-all flex items-center gap-3 active:scale-95"
             >
               <Icon name="Pill" /> Request Script Refill
             </button>
+            <a 
+              href={`https://wa.me/${PHARMACY_INFO.whatsapp}`}
+              className="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:bg-slate-800 transition-all flex items-center gap-3"
+            >
+              <Icon name="MessageSquare" /> WhatsApp Stock Check
+            </a>
           </div>
         </div>
 
-        {/* Promo Image Banner */}
-        <div className="rounded-[3rem] overflow-hidden relative mb-24 h-[300px] flex items-center">
-          <img 
-            src="https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&q=80&w=1600" 
-            className="absolute inset-0 w-full h-full object-cover" 
-            alt="Pharmacy Display" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-transparent"></div>
-          <div className="relative px-12 md:px-20 text-white max-w-lg">
-            <h2 className="text-4xl font-extrabold mb-4">Stocking Global & Local Brands</h2>
-            <p className="text-blue-100 leading-relaxed">We process all major medical aids and offer professional medication reviews for every prescription dispensed.</p>
-          </div>
+        {/* Catalog Categories Navigation (Sticky) */}
+        <div className="flex overflow-x-auto gap-4 mb-16 pb-4 no-scrollbar">
+          {PHARMACY_PRODUCTS.map((cat, i) => (
+            <a 
+              key={i} 
+              href={`#${cat.category.toLowerCase().replace(/\s/g, '-')}`}
+              className="whitespace-nowrap px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-600 hover:border-moshate-blue hover:text-moshate-blue transition-all"
+            >
+              {cat.category}
+            </a>
+          ))}
         </div>
 
-        {/* Product Catalog Categories */}
+        {/* Catalog Layout */}
         <div className="space-y-24">
           {PHARMACY_PRODUCTS.map((category, idx) => (
-            <div key={idx}>
-              <div className="flex items-center gap-4 mb-10">
-                <div className="h-1 w-12 bg-moshate-blue rounded-full"></div>
-                <h3 className="text-3xl font-extrabold text-slate-900">{category.category}</h3>
+            <section key={idx} id={category.category.toLowerCase().replace(/\s/g, '-')} className="scroll-mt-32">
+              <div className="flex items-center justify-between mb-10">
+                <div className="flex items-center gap-4">
+                  <div className="h-10 w-1 bg-moshate-blue rounded-full"></div>
+                  <h3 className="text-3xl font-extrabold text-slate-900">{category.category}</h3>
+                </div>
+                <span className="text-slate-400 text-sm font-bold uppercase tracking-widest">Store Inventory</span>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {category.items.map((product, pIdx) => (
-                  <div key={pIdx} className="group bg-slate-50 rounded-[2.5rem] border border-slate-100 p-2 hover:bg-white hover:shadow-2xl hover:border-blue-200 transition-all">
-                    <div className="aspect-square rounded-[2rem] overflow-hidden mb-6 relative">
-                      <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                      <div className="absolute top-4 right-4 bg-moshate-teal text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                  <div key={pIdx} className="group bg-white rounded-[2.5rem] border border-slate-100 p-2 hover:shadow-2xl hover:border-blue-100 transition-all">
+                    <div className="aspect-[4/3] rounded-[2rem] overflow-hidden mb-6 relative bg-slate-100">
+                      <img 
+                        src={product.image} 
+                        alt={product.name} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      />
+                      <div className="absolute top-4 right-4 moshate-gradient text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
                         {product.badge}
                       </div>
                     </div>
                     <div className="px-6 pb-8">
                       <h4 className="font-extrabold text-slate-900 text-lg mb-2">{product.name}</h4>
-                      <p className="text-slate-500 text-sm mb-4 leading-relaxed">{product.desc}</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-blue-600 font-bold text-xs">Available In-Store</span>
-                        <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                      <p className="text-slate-500 text-sm mb-6 leading-relaxed min-h-[40px]">{product.desc}</p>
+                      <div className="flex items-center justify-between pt-4 border-t border-slate-50">
+                        <span className="text-moshate-blue font-bold text-xs flex items-center gap-1">
+                          <Icon name="Activity" className="w-3 h-3" /> Available Today
+                        </span>
+                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-moshate-blue group-hover:bg-moshate-blue group-hover:text-white transition-colors">
                           <Icon name="Wind" className="w-4 h-4" />
                         </div>
                       </div>
@@ -78,20 +101,38 @@ const PharmacyPage: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
           ))}
         </div>
 
-        <div className="mt-24 p-12 bg-slate-900 rounded-[3rem] text-center text-white">
-          <Icon name="Shield" className="w-12 h-12 text-blue-400 mx-auto mb-6" />
-          <h2 className="text-3xl font-bold mb-6">Patient Notice</h2>
-          <p className="text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Brooklyn Pharmacy (Moshate Medical Centre) is a physical, in-person facility. We do not support online medication sales. All pharmaceutical items are dispensed in-store following a valid prescription or consultation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={`tel:${PHARMACY_INFO.phone}`} className="bg-moshate-blue text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg">Call to Check Stock</a>
-            <a href={`https://wa.me/${PHARMACY_INFO.whatsapp}`} className="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold hover:bg-slate-100 transition-all">WhatsApp Enquiry</a>
+        {/* Feature Banner */}
+        <div className="mt-24 rounded-[3.5rem] moshate-gradient p-12 md:p-20 text-white relative overflow-hidden">
+          <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-extrabold mb-6">Expert Pharmacist Advice</h2>
+              <p className="text-blue-50 text-lg mb-10 leading-relaxed">
+                Not sure which supplement is right for you? Our qualified pharmacists provide personalized consultations to ensure your health outcomes are maximized.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href={`tel:${PHARMACY_INFO.phone}`} className="bg-white text-moshate-blue px-8 py-4 rounded-2xl font-bold text-center shadow-lg">Call Centre</a>
+                <button onClick={() => setModalOpen(true)} className="bg-black/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-2xl font-bold">Refill Script</button>
+              </div>
+            </div>
+            <div className="hidden md:flex justify-end">
+              <Icon name="Stethoscope" className="w-64 h-64 text-white/10" />
+            </div>
           </div>
+          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full -mb-32 -mr-32 blur-3xl"></div>
+        </div>
+
+        {/* Patient Notice Footer */}
+        <div className="mt-24 text-center max-w-2xl mx-auto border-t border-slate-100 pt-16">
+          <p className="text-slate-400 text-sm italic mb-4">
+            Moshate Medical Centre Pharmacy is registered with the South African Pharmacy Council (SAPC). 
+          </p>
+          <p className="text-slate-500 font-medium">
+            Strictly no online medication sales. All items are dispensed in-person following clinical guidelines.
+          </p>
         </div>
       </div>
 
@@ -99,7 +140,7 @@ const PharmacyPage: React.FC = () => {
         isOpen={modalOpen} 
         onClose={() => setModalOpen(false)}
         title="Script Refill Request"
-        description="Provide your details and medication list. A pharmacist will review your request and contact you to confirm preparation."
+        description="Submit your details for a medication review. A pharmacist will contact you to confirm preparation for collection."
         type="general"
       />
     </div>

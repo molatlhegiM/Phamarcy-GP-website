@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -9,35 +8,33 @@ import WomenHealthPage from './pages/WomenHealthPage';
 import PhysioPage from './pages/PhysioPage';
 import DentalPage from './pages/DentalPage';
 import ContactPage from './pages/ContactPage';
-// Added imports for previously unlinked pages
 import ServicesPage from './pages/ServicesPage';
-import OTCPage from './pages/OTCPage';
-import ScriptsPage from './pages/ScriptsPage';
 import ComplianceBanner from './components/ComplianceBanner';
 import Footer from './components/Footer';
 import AIAssistant from './components/AIAssistant';
 
-// Updated Route type to include 'services', 'otc', and 'scripts' to fix type errors in Footer.tsx
-export type Route = 'home' | 'gp' | 'pharmacy' | 'clinic' | 'women' | 'physio' | 'dental' | 'contact' | 'services' | 'otc' | 'scripts';
+export type Route = 'home' | 'gp' | 'pharmacy' | 'clinic' | 'women' | 'physio' | 'dental' | 'contact' | 'services';
 
 function App() {
   const [currentRoute, setCurrentRoute] = useState<Route>('home');
 
   useEffect(() => {
-    const handlePopState = () => {
-      const path = window.location.hash.replace('#', '') as Route;
-      if (path) setCurrentRoute(path);
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '') as Route;
+      if (['home', 'gp', 'pharmacy', 'clinic', 'women', 'physio', 'dental', 'contact', 'services'].includes(hash)) {
+        setCurrentRoute(hash);
+      } else {
+        setCurrentRoute('home');
+      }
     };
-    window.addEventListener('popstate', handlePopState);
     
-    const initialPath = window.location.hash.replace('#', '') as Route;
-    if (initialPath) setCurrentRoute(initialPath);
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange(); // Handle initial load
 
-    return () => window.removeEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const navigate = (route: Route) => {
-    setCurrentRoute(route);
     window.location.hash = route;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -52,19 +49,16 @@ function App() {
       case 'physio': return <PhysioPage />;
       case 'dental': return <DentalPage />;
       case 'contact': return <ContactPage />;
-      // Added missing cases for navigation
       case 'services': return <ServicesPage />;
-      case 'otc': return <OTCPage />;
-      case 'scripts': return <ScriptsPage />;
       default: return <Home onNavigate={navigate} />;
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col scroll-smooth">
+    <div className="min-h-screen flex flex-col scroll-smooth selection:bg-moshate-teal selection:text-white">
       <Header currentRoute={currentRoute} onNavigate={navigate} />
       
-      <main className="flex-grow animate-in fade-in duration-500">
+      <main className="flex-grow animate-in fade-in duration-700">
         {renderView()}
       </main>
 

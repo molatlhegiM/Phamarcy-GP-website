@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Added React.ReactElement return type to fix JSX namespace errors
 export const Icon = ({ name, className = "w-6 h-6" }: { name: string, className?: string }): React.ReactElement => {
   const icons: Record<string, React.ReactElement> = {
     Pill: (
@@ -20,12 +19,12 @@ export const Icon = ({ name, className = "w-6 h-6" }: { name: string, className?
     ),
     Sparkles: (
       <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
       </svg>
     ),
     Baby: (
       <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/>
+        <path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3"/>
       </svg>
     ),
     Shield: (
@@ -35,7 +34,7 @@ export const Icon = ({ name, className = "w-6 h-6" }: { name: string, className?
     ),
     Syringe: (
       <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/>
+        <path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/>
       </svg>
     ),
     Activity: (
@@ -50,7 +49,7 @@ export const Icon = ({ name, className = "w-6 h-6" }: { name: string, className?
     ),
     Scale: (
       <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h18"/>
+        <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M12 3v18"/><path d="M3 7h18"/>
       </svg>
     ),
     Clock: (
@@ -80,7 +79,7 @@ export const Icon = ({ name, className = "w-6 h-6" }: { name: string, className?
     ),
     Stethoscope: (
       <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4.8 2.3A.3.3 0 1 0 5 2a.3.3 0 0 0-.2.3Z"/><path d="M10 2v2"/><path d="M7 2v2"/><path d="M10 4H7"/><path d="M10 4c0 2.2-1.8 4-4 4S2 6.2 2 4"/><path d="M6 8v12c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-5"/><path d="M18 10v4"/><path d="M16 12h4"/><path d="M14 10v4c0 2.2 1.8 4 4 4s4-1.8 4-4v-4c0-2.2-1.8-4-4-4s-4 1.8-4 4Z"/>
+        <path d="M12 2v2"/><path d="M12 11c0 3.3 2.7 6 6 6s6-2.7 6-6V2h-3v9c0 1.7-1.3 3-3 3s-3-1.3-3-3V2H9v9c0 3.3 2.7 6 6 6"/><path d="M12 17v4h8v-4"/><path d="M3 2v2"/><path d="M3 11c0 3.3 2.7 6 6 6"/><path d="M9 11V2H6v9c0 1.7-1.3 3-3 3"/>
       </svg>
     )
   };

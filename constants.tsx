@@ -57,28 +57,37 @@ export const PHARMACY_PRODUCTS = [
   {
     category: "Pain Relief",
     items: [
-      { name: "Advil Liqui-Gels", desc: "Fast pain relief for headaches and fever.", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=200", badge: "Special" },
-      { name: "Panado Capsules", desc: "Trusted relief for pain and fever symptoms.", image: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?auto=format&fit=crop&q=80&w=200", badge: "In-Store" },
-      { name: "Nurofen for Children", desc: "Gentle fever reduction for little ones.", image: "https://images.unsplash.com/photo-1550572017-ed200f545dec?auto=format&fit=crop&q=80&w=200", badge: "Top Seller" },
-      { name: "Grand-Pa Powders", desc: "Classic South African pain relief.", image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=200", badge: "Stocked" }
+      { name: "Advil Liqui-Gels", desc: "Fast-acting pain relief for headaches and muscle aches.", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=300", badge: "20% OFF" },
+      { name: "Panado Capsules", desc: "Gentle on the stomach, effective for fever reduction.", image: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?auto=format&fit=crop&q=80&w=300", badge: "In-Store Only" },
+      { name: "Nurofen for Children", desc: "Targeted fever and pain relief for infants and toddlers.", image: "https://images.unsplash.com/photo-1550572017-ed200f545dec?auto=format&fit=crop&q=80&w=300", badge: "Pediatric" },
+      { name: "Myprodol Capsules", desc: "Potent relief for acute pain and inflammation.", image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=300", badge: "Stocked" }
     ]
   },
   {
     category: "Cold & Flu",
     items: [
-      { name: "Corenza C", desc: "Effervescent relief for flu symptoms.", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=200", badge: "Winter Deal" },
-      { name: "Vicks VapoRub", desc: "Soothing relief for nasal congestion.", image: "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&q=80&w=200", badge: "Classic" },
-      { name: "Benylin Cough Syrup", desc: "Effective cough suppression for adults.", image: "https://images.unsplash.com/photo-1471864190281-ad5fe9bb0720?auto=format&fit=crop&q=80&w=200", badge: "In-Store" },
-      { name: "Strepsils Lozenges", desc: "Quick relief for sore throats.", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=200", badge: "Stocked" }
+      { name: "Corenza C", desc: "Effervescent tablets for complete flu symptom relief.", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=300", badge: "Winter Special" },
+      { name: "Vicks VapoRub", desc: "Classic soothing balm for congestion and cough.", image: "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&q=80&w=300", badge: "Top Seller" },
+      { name: "Benylin Wet Cough", desc: "Effective expectorant for chesty coughs.", image: "https://images.unsplash.com/photo-1471864190281-ad5fe9bb0720?auto=format&fit=crop&q=80&w=300", badge: "Adult Range" },
+      { name: "Strepsils Honey & Lemon", desc: "Soothing lozenges for irritated sore throats.", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=300", badge: "Essentials" }
     ]
   },
   {
     category: "Vitamins & Wellness",
     items: [
-      { name: "Vital Gold", desc: "Comprehensive daily multi-vitamin.", image: "https://images.unsplash.com/photo-1559839734-2b71f1e3c770?auto=format&fit=crop&q=80&w=200", badge: "10% Off" },
-      { name: "Vitamin C 500mg", desc: "Immune system support for the family.", image: "https://images.unsplash.com/photo-1616671285433-88687707e436?auto=format&fit=crop&q=80&w=200", badge: "Essential" },
-      { name: "Omega-3 Fish Oil", desc: "Heart and brain health support.", image: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?auto=format&fit=crop&q=80&w=200", badge: "Health" },
-      { name: "Zinc & C Lozenges", desc: "Direct immune boost.", image: "https://images.unsplash.com/photo-1471864190281-ad5fe9bb0720?auto=format&fit=crop&q=80&w=200", badge: "Trending" }
+      { name: "Vital Gold Multi-Vitamin", desc: "Complete daily nutrition for active adults.", image: "https://images.unsplash.com/photo-1559839734-2b71f1e3c770?auto=format&fit=crop&q=80&w=300", badge: "10% OFF" },
+      { name: "Slow-Mag Effervescent", desc: "Magnesium supplement for muscle health and stress.", image: "https://images.unsplash.com/photo-1616671285433-88687707e436?auto=format&fit=crop&q=80&w=300", badge: "Trending" },
+      { name: "Berocca Performance", desc: "Vitamin B & C energy boost for physical/mental clarity.", image: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?auto=format&fit=crop&q=80&w=300", badge: "In-Store" },
+      { name: "Solal Vitamin D3", desc: "Bone and immune support for high-quality wellness.", image: "https://images.unsplash.com/photo-1471864190281-ad5fe9bb0720?auto=format&fit=crop&q=80&w=300", badge: "Premium" }
+    ]
+  },
+  {
+    category: "Baby & Child Care",
+    items: [
+      { name: "Bepanthen Ointment", desc: "Gentle protection against nappy rash and irritation.", image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&q=80&w=300", badge: "Nursery" },
+      { name: "Purity Baby Cereal", desc: "Nutritious first foods for growing infants.", image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=300", badge: "Nutrition" },
+      { name: "Telament Colic Drops", desc: "Relief for baby gas and digestive discomfort.", image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&q=80&w=300", badge: "New Parent" },
+      { name: "Bennett's Baby Cream", desc: "Soothing skin care for delicate baby skin.", image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&q=80&w=300", badge: "Safe" }
     ]
   }
 ];

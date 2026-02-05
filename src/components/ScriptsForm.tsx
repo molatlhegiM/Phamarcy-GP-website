@@ -1,7 +1,5 @@
-
 import React, { useState } from 'react';
-import { PHARMACY_INFO } from '../constants';
-import { classifyUserEnquiry } from '../services/geminiService';
+import { Icon } from './Icons';
 
 const ScriptsForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -17,11 +15,8 @@ const ScriptsForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
+
     setTimeout(() => {
-      const category = classifyUserEnquiry(formData.details);
-      console.log(`Sending to ${PHARMACY_INFO.email} with category: ${category}`);
       setIsSubmitting(false);
       setIsSuccess(true);
       setFormData({ fullName: '', phone: '', idNumber: '', details: '', collectionTime: 'Morning (08:00 - 12:00)' });
@@ -41,10 +36,12 @@ const ScriptsForm: React.FC = () => {
 
           {isSuccess ? (
             <div className="bg-white p-12 rounded-2xl text-center shadow-lg border-2 border-emerald-500 animate-in fade-in zoom-in duration-300">
-              <div className="text-5xl mb-4">✅</div>
-              <h3 className="text-2xl font-bold text-emerald-900 mb-2">Request Sent Successfully!</h3>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                <Icon name="CheckCircle" className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-emerald-900 mb-2">Request Sent Successfully</h3>
               <p className="text-slate-600 mb-6">Our pharmacist or nurse will contact you shortly on the number provided.</p>
-              <button 
+              <button
                 onClick={() => setIsSuccess(false)}
                 className="text-emerald-600 font-bold hover:underline"
               >
@@ -60,7 +57,7 @@ const ScriptsForm: React.FC = () => {
                     required
                     type="text"
                     value={formData.fullName}
-                    onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
                     placeholder="e.g. Johannes Botha"
                   />
@@ -71,7 +68,7 @@ const ScriptsForm: React.FC = () => {
                     required
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
                     placeholder="012 345 6789"
                   />
@@ -83,7 +80,7 @@ const ScriptsForm: React.FC = () => {
                 <input
                   type="text"
                   value={formData.idNumber}
-                  onChange={(e) => setFormData({...formData, idNumber: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, idNumber: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
                   placeholder="For faster processing"
                 />
@@ -95,7 +92,7 @@ const ScriptsForm: React.FC = () => {
                   required
                   rows={4}
                   value={formData.details}
-                  onChange={(e) => setFormData({...formData, details: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
                   placeholder="Please list your items or ask a question..."
                 ></textarea>
@@ -105,7 +102,7 @@ const ScriptsForm: React.FC = () => {
                 <label className="block text-sm font-semibold text-emerald-900 mb-2">Preferred Collection Time</label>
                 <select
                   value={formData.collectionTime}
-                  onChange={(e) => setFormData({...formData, collectionTime: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, collectionTime: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
                 >
                   <option>Morning (08:00 - 12:00)</option>

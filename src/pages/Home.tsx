@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PHARMACY_INFO, TRUST_REASONS, MAIN_SERVICES } from '../constants';
 import { Icon } from '../components/Icons';
 import { Route } from '../App';
-import ContactModal from '../components/ContactModal';
+import WhatsAppModal from '../components/WhatsAppModal';
 
 interface HomeProps {
   onNavigate: (route: Route) => void;
@@ -36,13 +36,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed">
               Comprehensive medical, dental, and pharmacy services in the heart of Akasia. Professional healthcare for the whole family.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-5">
               <a
                 href={`tel:${PHARMACY_INFO.phone}`}
                 className="bg-white text-blue-700 px-10 py-5 rounded-2xl font-bold text-center hover:bg-slate-50 transition-all shadow-xl flex items-center justify-center gap-3 active:scale-95"
               >
-                <Icon name="Phone" /> Call 069 684 7864
+                <Icon name="Phone" /> Call {PHARMACY_INFO.phone}
               </a>
               <button
                 onClick={() => onNavigate('contact')}
@@ -78,18 +78,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <div className="bg-slate-900 rounded-[3rem] p-10 md:p-20 overflow-hidden relative text-white">
             <div className="relative z-10 max-w-2xl">
               <span className="text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">Practice Growth</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-8">Professional Suites & Rooms for Rent</h2>
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-8">Professional Suites and Rooms for Rent</h2>
               <p className="text-slate-300 text-lg mb-10 leading-relaxed">
-                Moshate Medical Centre offers professional suites for Doctors, Nurses, Dentists, Optometrists, Physiotherapists, and other healthcare professionals. Elevate your practice in a premium Akasia location.
+                Moshate Medical Centre offers professional suites for doctors, dentists, physiotherapists, optometrists, nurses, and allied health practitioners. Elevate your practice in a premium Akasia location.
               </p>
-              <button 
+              <button
                 onClick={() => setModalOpen(true)}
                 className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-xl active:scale-95"
               >
-                Enquire About Consulting Rooms
+                Enquire About Consulting Suites
               </button>
             </div>
-            {/* Abstract Decorative Element */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
           </div>
         </div>
@@ -102,7 +101,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <h2 className="text-4xl font-extrabold text-slate-900 mb-4">Our Medical Departments</h2>
             <p className="text-slate-500 max-w-xl mx-auto">Specialized care for every member of the family, all under one roof.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {MAIN_SERVICES.map((service) => (
               <button
@@ -125,12 +124,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      <ContactModal 
-        isOpen={modalOpen} 
+      <WhatsAppModal
+        isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        title="Consulting Room Enquiry"
-        description="Enquire about professional medical suites and consulting rooms at Moshate Medical Centre. Perfect for Doctors, Dentists, and Allied Health practitioners."
-        type="suites"
+        title="Consulting Suites Enquiry"
+        description="Speak with our admin team about availability, pricing, and suite features."
+        whatsappMessage="Hello, I would like to enquire about consulting suites for rent at Moshate Medical Centre."
       />
     </div>
   );

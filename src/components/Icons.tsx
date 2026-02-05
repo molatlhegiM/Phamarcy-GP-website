@@ -81,6 +81,26 @@ export const Icon = ({ name, className = "w-6 h-6" }: { name: string, className?
       <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2v2"/><path d="M12 11c0 3.3 2.7 6 6 6s6-2.7 6-6V2h-3v9c0 1.7-1.3 3-3 3s-3-1.3-3-3V2H9v9c0 3.3 2.7 6 6 6"/><path d="M12 17v4h8v-4"/><path d="M3 2v2"/><path d="M3 11c0 3.3 2.7 6 6 6"/><path d="M9 11V2H6v9c0 1.7-1.3 3-3 3"/>
       </svg>
+    ),
+    X: (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 6L6 18"/><path d="M6 6l12 12"/>
+      </svg>
+    ),
+    ChevronLeft: (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    ),
+    Building: (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h3v3H7z"/><path d="M14 7h3v3h-3z"/><path d="M7 14h3v3H7z"/><path d="M14 14h3v3h-3z"/>
+      </svg>
+    ),
+    CheckCircle: (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/>
+      </svg>
     )
   };
 

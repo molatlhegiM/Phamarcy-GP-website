@@ -9,11 +9,24 @@ import PhysioPage from './pages/PhysioPage';
 import DentalPage from './pages/DentalPage';
 import ContactPage from './pages/ContactPage';
 import ServicesPage from './pages/ServicesPage';
+import OTCPage from './pages/OTCPage';
+import ScriptsPage from './pages/ScriptsPage';
 import ComplianceBanner from './components/ComplianceBanner';
 import Footer from './components/Footer';
 import AIAssistant from './components/AIAssistant';
 
-export type Route = 'home' | 'gp' | 'pharmacy' | 'clinic' | 'women' | 'physio' | 'dental' | 'contact' | 'services';
+export type Route =
+  | 'home'
+  | 'gp'
+  | 'pharmacy'
+  | 'clinic'
+  | 'women'
+  | 'physio'
+  | 'dental'
+  | 'contact'
+  | 'services'
+  | 'otc'
+  | 'scripts';
 
 function App() {
   const [currentRoute, setCurrentRoute] = useState<Route>('home');
@@ -21,7 +34,7 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '') as Route;
-      if (['home', 'gp', 'pharmacy', 'clinic', 'women', 'physio', 'dental', 'contact', 'services'].includes(hash)) {
+      if (['home', 'gp', 'pharmacy', 'clinic', 'women', 'physio', 'dental', 'contact', 'services', 'otc', 'scripts'].includes(hash)) {
         setCurrentRoute(hash);
       } else {
         setCurrentRoute('home');
@@ -50,6 +63,8 @@ function App() {
       case 'dental': return <DentalPage />;
       case 'contact': return <ContactPage />;
       case 'services': return <ServicesPage />;
+      case 'otc': return <OTCPage />;
+      case 'scripts': return <ScriptsPage />;
       default: return <Home onNavigate={navigate} />;
     }
   };

@@ -1,0 +1,27 @@
+﻿@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .bg-moshate-blue { background-color: #1F7FBF; }
+  .text-moshate-blue { color: #1F7FBF; }
+  .border-moshate-blue { border-color: #1F7FBF; }
+
+  .bg-moshate-teal { background-color: #22C1BC; }
+  .text-moshate-teal { color: #22C1BC; }
+
+  .bg-moshate-green { background-color: #5CB85C; }
+  .text-moshate-green { color: #5CB85C; }
+
+  .moshate-gradient {
+    background: linear-gradient(135deg, #1F7FBF 0%, #22C1BC 100%);
+  }
+
+  .scroll-mt-header {
+    scroll-margin-top: 80px;
+  }
+}

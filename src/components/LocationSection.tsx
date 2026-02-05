@@ -1,19 +1,21 @@
-
 import React from 'react';
 import { PHARMACY_INFO } from '../constants';
+import { Icon } from './Icons';
 
 const LocationSection: React.FC = () => {
   return (
     <div className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          
+
           <div className="space-y-8">
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-6">Find & Visit Us</h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="text-emerald-600 text-2xl">📍</div>
+                  <div className="text-emerald-600">
+                    <Icon name="MapPin" className="w-6 h-6" />
+                  </div>
                   <div>
                     <h4 className="font-bold text-slate-900">Physical Address</h4>
                     <p className="text-slate-600">{PHARMACY_INFO.address}</p>
@@ -22,7 +24,9 @@ const LocationSection: React.FC = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="text-emerald-600 text-2xl">📞</div>
+                  <div className="text-emerald-600">
+                    <Icon name="Phone" className="w-6 h-6" />
+                  </div>
                   <div>
                     <h4 className="font-bold text-slate-900">Contact Details</h4>
                     <p className="text-slate-600">Tel: {PHARMACY_INFO.phone}</p>
@@ -35,7 +39,8 @@ const LocationSection: React.FC = () => {
 
             <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
               <h4 className="font-bold text-slate-900 mb-4 flex items-center space-x-2">
-                <span>🕒</span> <span>Opening Hours</span>
+                <Icon name="Clock" className="w-5 h-5 text-emerald-600" />
+                <span>Opening Hours</span>
               </h4>
               <div className="space-y-3">
                 {PHARMACY_INFO.openingHours.map((h, i) => (
@@ -48,7 +53,7 @@ const LocationSection: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a 
+              <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(PHARMACY_INFO.address)}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -56,7 +61,7 @@ const LocationSection: React.FC = () => {
               >
                 Open in Google Maps
               </a>
-              <a 
+              <a
                 href={`tel:${PHARMACY_INFO.phone}`}
                 className="flex-1 text-center bg-emerald-600 py-4 rounded-xl font-bold text-white hover:bg-emerald-700 transition-all"
               >
@@ -66,15 +71,15 @@ const LocationSection: React.FC = () => {
           </div>
 
           <div className="h-[400px] lg:h-[600px] rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-            <iframe 
+            <iframe
               src={PHARMACY_INFO.mapsUrl}
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Brooklyn Pharmacy Map"
+              title="Moshate Medical Centre Map"
             ></iframe>
           </div>
 

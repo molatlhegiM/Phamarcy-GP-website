@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { PHARMACY_INFO } from '../constants';
 import { Icon } from '../components/Icons';
-import ContactModal from '../components/ContactModal';
+import WhatsAppModal from '../components/WhatsAppModal';
 
 const PhysioPage: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -30,7 +29,7 @@ const PhysioPage: React.FC = () => {
               ))}
             </div>
 
-            <button 
+            <button
               onClick={() => setModalOpen(true)}
               className="w-full sm:w-auto bg-moshate-blue hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-bold shadow-xl transition-all flex items-center justify-center gap-3"
             >
@@ -38,21 +37,21 @@ const PhysioPage: React.FC = () => {
             </button>
           </div>
           <div className="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
-            <img 
-              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000" 
-              alt="Physiotherapy session" 
+            <img
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000"
+              alt="Physiotherapy session"
               className="w-full h-full object-cover"
             />
           </div>
         </div>
       </div>
 
-      <ContactModal 
-        isOpen={modalOpen} 
+      <WhatsAppModal
+        isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         title="Physiotherapy Booking"
-        description="Request a consultation with our on-site Physiotherapist. Tell us about your condition or injury so we can prepare your treatment plan."
-        type="physio"
+        description="Contact our physiotherapist on WhatsApp for appointment availability and treatment guidance."
+        whatsappMessage="Hello, I would like to book a physiotherapy consultation at Moshate Medical Centre."
       />
     </div>
   );

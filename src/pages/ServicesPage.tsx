@@ -9,9 +9,9 @@ const ServicesPage: React.FC = () => {
     <div className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="max-w-3xl mb-16">
-          <h1 className="text-5xl font-extrabold text-slate-900 mb-6">Pharmacy Services</h1>
+          <h1 className="text-5xl font-extrabold text-slate-900 mb-6">Medical Services</h1>
           <p className="text-xl text-slate-600 leading-relaxed">
-            From dispensing prescriptions to expert medication reviews, we provide a full range of pharmaceutical care tailored to your specific health needs.
+            From GP consultations to pharmacy support and allied health services, we provide comprehensive care tailored to your needs.
           </p>
         </div>
 

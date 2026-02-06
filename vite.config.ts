@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(() => ({
-  base: '/Phamarcy-GP-website/',
+  base: '/Phamarcy-GP-website/', 
 
   server: {
     port: 3000,
